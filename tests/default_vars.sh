@@ -9,24 +9,25 @@
 
   THRD=1
 
-  TASKS_atmaero=198; INPES_atmaero=4; JNPES_atmaero=8; WPG_atmaero=6
+  INPES_atmaero=4; JNPES_atmaero=8; WPG_atmaero=6
 
-  TASKS_cpl_atmw=180; THRD_cpl_atmw=1
+  THRD_cpl_atmw=1
   INPES_cpl_atmw=3; JNPES_cpl_atmw=8; WPG_cpl_atmw=6
-  WAV_tasks_atmw=30
+  WAV_tasks_cpl_atmw=30
+  WAV_thrds_cpl_atmw=1
 
-  TASKS_cpl_c48=20; THRD_cpl_c48=1 
+  THRD_cpl_c48=1
   INPES_cpl_c48=1; JNPES_cpl_c48=1; WPG_cpl_c48=6
   OCN_tasks_cpl_c48=4
   ICE_tasks_cpl_c48=4
 
-  TASKS_cpl_dflt=200; THRD_cpl_dflt=1
+  THRD_cpl_dflt=1
   INPES_cpl_dflt=3; JNPES_cpl_dflt=8; WPG_cpl_dflt=6
   OCN_tasks_cpl_dflt=20
   ICE_tasks_cpl_dflt=10
   WAV_tasks_cpl_dflt=20
 
-  TASKS_cpl_thrd=120; THRD_cpl_thrd=2
+  THRD_cpl_thrd=2
   INPES_cpl_thrd=3; JNPES_cpl_thrd=4; WPG_cpl_thrd=6
   OCN_tasks_cpl_thrd=20
   OCN_thrds_cpl_thrd=1
@@ -35,19 +36,19 @@
   WAV_tasks_cpl_thrd=12
   WAV_thrds_cpl_thrd=2
 
-  TASKS_cpl_dcmp=200; THRD_cpl_dcmp=1
+  THRD_cpl_dcmp=1
   INPES_cpl_dcmp=4; JNPES_cpl_dcmp=6; WPG_cpl_dcmp=6
   OCN_tasks_cpl_dcmp=20
   ICE_tasks_cpl_dcmp=10
   WAV_tasks_cpl_dcmp=20
 
-  TASKS_cpl_mpi=280; THRD_cpl_mpi=1
+  THRD_cpl_mpi=1
   INPES_cpl_mpi=4; JNPES_cpl_mpi=8; WPG_cpl_mpi=6
   OCN_tasks_cpl_mpi=34
   ICE_tasks_cpl_mpi=20
   WAV_tasks_cpl_mpi=28
 
-  TASKS_cpl_bmrk=680; THRD_cpl_bmrk=2
+  THRD_cpl_bmrk=2
   INPES_cpl_bmrk=8; JNPES_cpl_bmrk=8; WPG_cpl_bmrk=48
   OCN_tasks_cpl_bmrk=120
   OCN_thrds_cpl_bmrk=1
@@ -56,34 +57,41 @@
   WAV_tasks_cpl_bmrk=80
   WAV_thrds_cpl_bmrk=2
 
-  TASKS_cpl_c192=464; THRD_cpl_c192=2
+  THRD_cpl_c192=2
   INPES_cpl_c192=6; JNPES_cpl_c192=8; WPG_cpl_c192=12
   OCN_tasks_cpl_c192=60
   ICE_tasks_cpl_c192=24
   WAV_tasks_cpl_c192=80
 
-  TASKS_cdeps_100=40
   ATM_compute_tasks_cdeps_100=12
   OCN_tasks_cdeps_100=16
   ICE_tasks_cdeps_100=12
 
-  TASKS_cdeps_025=208
   ATM_compute_tasks_cdeps_025=40
   OCN_tasks_cdeps_025=120
   ICE_tasks_cdeps_025=48
 
-  TASKS_aqm=272; INPES_aqm=33; JNPES_aqm=8
+  INPES_aqm=33; JNPES_aqm=8
+
+  aqm_omp_num_threads=1
+  atm_omp_num_threads=1
+  chm_omp_num_threads=1
+  ice_omp_num_threads=1
+  lnd_omp_num_threads=1
+  med_omp_num_threads=1
+  ocn_omp_num_threads=1
+  wav_omp_num_threads=1
 
 if [[ $MACHINE_ID = wcoss2.* || $MACHINE_ID = acorn.* ]]; then
 
   TPN=128
 
-  TASKS_dflt=150 ; INPES_dflt=3 ; JNPES_dflt=8
-  TASKS_thrd=78  ; INPES_thrd=3 ; JNPES_thrd=4
-  TASKS_c384=336 ; INPES_c384=8 ; JNPES_c384=6  ; THRD_c384=2
-  TASKS_c768=928 ; INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=2
+  INPES_dflt=3 ; JNPES_dflt=8
+  INPES_thrd=3 ; JNPES_thrd=4
+  INPES_c384=8 ; JNPES_c384=6  ; THRD_c384=2
+  INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=2
 
-  TASKS_cpl_atmw_gdas=560; THRD_cpl_atmw_gdas=2
+  THRD_cpl_atmw_gdas=2
   INPES_cpl_atmw_gdas=6; JNPES_cpl_atmw_gdas=8; WPG_cpl_atmw_gdas=24
   WAV_tasks_atmw_gdas=248
 
@@ -91,12 +99,12 @@ elif [[ $MACHINE_ID = orion.* ]]; then
 
   TPN=40
 
-  TASKS_dflt=150 ; INPES_dflt=3 ; JNPES_dflt=8
-  TASKS_thrd=78  ; INPES_thrd=3 ; JNPES_thrd=4
-  TASKS_c384=336 ; INPES_c384=8 ; JNPES_c384=6  ; THRD_c384=2
-  TASKS_c768=928 ; INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=2
+  INPES_dflt=3 ; JNPES_dflt=8
+  INPES_thrd=3 ; JNPES_thrd=4
+  INPES_c384=8 ; JNPES_c384=6  ; THRD_c384=2
+  INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=2
 
-  TASKS_cpl_atmw_gdas=560; THRD_cpl_atmw_gdas=2
+  THRD_cpl_atmw_gdas=2
   INPES_cpl_atmw_gdas=6; JNPES_cpl_atmw_gdas=8; WPG_cpl_atmw_gdas=24
   WAV_tasks_atmw_gdas=248
 
@@ -104,12 +112,12 @@ elif [[ $MACHINE_ID = hera.* ]]; then
 
   TPN=40
 
-  TASKS_dflt=150 ; INPES_dflt=3 ; JNPES_dflt=8
-  TASKS_thrd=78  ; INPES_thrd=3 ; JNPES_thrd=4
-  TASKS_c384=336 ; INPES_c384=6 ; JNPES_c384=8  ; THRD_c384=2
-  TASKS_c768=928 ; INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=4
+  INPES_dflt=3 ; JNPES_dflt=8
+  INPES_thrd=3 ; JNPES_thrd=4
+  INPES_c384=6 ; JNPES_c384=8  ; THRD_c384=2
+  INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=4
 
-  TASKS_cpl_atmw_gdas=560; THRD_cpl_atmw_gdas=2
+  THRD_cpl_atmw_gdas=2
   INPES_cpl_atmw_gdas=6; JNPES_cpl_atmw_gdas=8; WPG_cpl_atmw_gdas=24
   WAV_tasks_atmw_gdas=248
 
@@ -117,16 +125,16 @@ elif [[ $MACHINE_ID = linux.* ]]; then
 
   TPN=40
 
-  TASKS_dflt=150 ; INPES_dflt=3 ; JNPES_dflt=8
-  TASKS_thrd=78  ; INPES_thrd=3 ; JNPES_thrd=4
+  INPES_dflt=3 ; JNPES_dflt=8
+  INPES_thrd=3 ; JNPES_thrd=4
 
-  TASKS_cpl_dflt=200; THRD_cpl_dflt=1
+  THRD_cpl_dflt=1
   INPES_cpl_dflt=3; JNPES_cpl_dflt=8; WPG_cpl_dflt=6
   OCN_tasks_cpl_dflt=20
   ICE_tasks_cpl_dflt=10
   WAV_tasks_cpl_dflt=20
 
-  TASKS_cpl_thrd=120; THRD_cpl_thrd=2
+  THRD_cpl_thrd=2
   INPES_cpl_thrd=3; JNPES_cpl_thrd=4; WPG_cpl_thrd=6
   OCN_tasks_cpl_thrd=20
   ICE_tasks_cpl_thrd=10
@@ -136,17 +144,17 @@ elif [[ $MACHINE_ID = jet.* ]]; then
 
   TPN=24
 
-  TASKS_dflt=150 ; INPES_dflt=3 ; JNPES_dflt=8
-  TASKS_thrd=78  ; INPES_thrd=3 ; JNPES_thrd=4
-  TASKS_c384=480 ; INPES_c384=6 ; JNPES_c384=12 ; THRD_c384=1
-  TASKS_c768=928 ; INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=2
+  INPES_dflt=3 ; JNPES_dflt=8
+  INPES_thrd=3 ; JNPES_thrd=4
+  INPES_c384=6 ; JNPES_c384=12 ; THRD_c384=1
+  INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=2
 
-  TASKS_cpl_atmw_gdas=552; THRD_cpl_atmw_gdas=2
+  THRD_cpl_atmw_gdas=2
   INPES_cpl_atmw_gdas=6; JNPES_cpl_atmw_gdas=8; WPG_cpl_atmw_gdas=24
   WAV_tasks_atmw_gdas=240
 
   # run only in weekly test
-  TASKS_cpl_bmrk=1832; THRD_cpl_bmrk=2
+  THRD_cpl_bmrk=2
   INPES_cpl_bmrk=16; JNPES_cpl_bmrk=16; WPG_cpl_bmrk=48
   OCN_tasks_cpl_bmrk=100
   ICE_tasks_cpl_bmrk=48
@@ -154,7 +162,7 @@ elif [[ $MACHINE_ID = jet.* ]]; then
   WLCLK_cpl_bmrk=120
 
   # run only in weekly test
-  TASKS_cpl_c192=1404; THRD_cpl_c192=2
+  THRD_cpl_c192=2
   INPES_cpl_c192=12; JNPES_cpl_c192=16; WPG_cpl_c192=24
   OCN_tasks_cpl_c192=100
   ICE_tasks_cpl_c192=48
@@ -165,16 +173,16 @@ elif [[ $MACHINE_ID = s4.* ]]; then
 
   TPN=32
 
-  TASKS_dflt=150 ; INPES_dflt=3 ; JNPES_dflt=8
-  TASKS_thrd=78  ; INPES_thrd=3 ; JNPES_thrd=4
-  TASKS_c384=336 ; INPES_c384=6 ; JNPES_c384=8 ; THRD_c384=2
-  TASKS_c768=928 ; INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=1
+  INPES_dflt=3 ; JNPES_dflt=8
+  INPES_thrd=3 ; JNPES_thrd=4
+  INPES_c384=6 ; JNPES_c384=8 ; THRD_c384=2
+  INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=1
 
-  TASKS_cpl_atmw_gdas=560; THRD_cpl_atmw_gdas=2
+  THRD_cpl_atmw_gdas=2
   INPES_cpl_atmw_gdas=6; JNPES_cpl_atmw_gdas=8; WPG_cpl_atmw_gdas=24
   WAV_tasks_atmw_gdas=248
 
-  TASKS_cpl_bmrk=560; THRD_cpl_bmrk=2
+  THRD_cpl_bmrk=2
   INPES_cpl_bmrk=6; JNPES_cpl_bmrk=8; WPG_cpl_bmrk=24
   OCN_tasks_cpl_bmrk=120
   ICE_tasks_cpl_bmrk=48
@@ -184,12 +192,12 @@ elif [[ $MACHINE_ID = gaea.* ]]; then
 
   TPN=36
 
-  TASKS_dflt=150 ; INPES_dflt=3 ; JNPES_dflt=8
-  TASKS_thrd=78  ; INPES_thrd=3 ; JNPES_thrd=4
-  TASKS_c384=336 ; INPES_c384=6 ; JNPES_c384=8  ; THRD_c384=2
-  TASKS_c768=928 ; INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=2
+  INPES_dflt=3 ; JNPES_dflt=8
+  INPES_thrd=3 ; JNPES_thrd=4
+  INPES_c384=6 ; JNPES_c384=8  ; THRD_c384=1
+  INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=2
 
-  TASKS_cpl_atmw_gdas=576; THRD_cpl_atmw_gdas=3
+  THRD_cpl_atmw_gdas=3
   INPES_cpl_atmw_gdas=6; JNPES_cpl_atmw_gdas=8; WPG_cpl_atmw_gdas=24
   WAV_tasks_atmw_gdas=264
 
@@ -197,40 +205,40 @@ elif [[ $MACHINE_ID = cheyenne.* ]]; then
 
   TPN=36
 
-  TASKS_dflt=150 ; INPES_dflt=3 ; JNPES_dflt=8
-  TASKS_thrd=78  ; INPES_thrd=3 ; JNPES_thrd=4
-  TASKS_c384=336 ; INPES_c384=8 ; JNPES_c384=6  ; THRD_c384=2
-  TASKS_c768=992 ; INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=2
+  INPES_dflt=3 ; JNPES_dflt=8
+  INPES_thrd=3 ; JNPES_thrd=4
+  INPES_c384=8 ; JNPES_c384=6  ; THRD_c384=2
+  INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=2
 
-  TASKS_cpl_atmw_gdas=576; THRD_cpl_atmw_gdas=3
+  THRD_cpl_atmw_gdas=3
   INPES_cpl_atmw_gdas=6; JNPES_cpl_atmw_gdas=8; WPG_cpl_atmw_gdas=24
   WAV_tasks_atmw_gdas=264
 
-  TASKS_cpl_dflt=344; THRD_cpl_dflt=1
+  THRD_cpl_dflt=1
   INPES_cpl_dflt=6; JNPES_cpl_dflt=8; WPG_cpl_dflt=6
   OCN_tasks_cpl_dflt=20
   ICE_tasks_cpl_dflt=10
   WAV_tasks_cpl_dflt=20
 
-  TASKS_cpl_thrd=200; THRD_cpl_thrd=2
+  THRD_cpl_thrd=2
   INPES_cpl_thrd=6; JNPES_cpl_thrd=4; WPG_cpl_thrd=6
   OCN_tasks_cpl_thrd=20
   ICE_tasks_cpl_thrd=10
   WAV_tasks_cpl_thrd=20
 
-  TASKS_cpl_dcmp=344; THRD_cpl_dcmp=1
+  THRD_cpl_dcmp=1
   INPES_cpl_dcmp=4; JNPES_cpl_dcmp=12; WPG_cpl_dcmp=6
   OCN_tasks_cpl_dcmp=20
   ICE_tasks_cpl_dcmp=10
   WAV_tasks_cpl_dcmp=20
 
-  TASKS_cpl_mpi=498; THRD_cpl_mpi=1
+  THRD_cpl_mpi=1
   INPES_cpl_mpi=6; JNPES_cpl_mpi=12; WPG_cpl_mpi=6
   OCN_tasks_cpl_mpi=24
   ICE_tasks_cpl_mpi=12
   WAV_tasks_cpl_mpi=24
 
-  TASKS_cpl_bmrk=892; THRD_cpl_bmrk=2
+  THRD_cpl_bmrk=2
   INPES_cpl_bmrk=12; JNPES_cpl_bmrk=8; WPG_cpl_bmrk=48
   OCN_tasks_cpl_bmrk=120
   ICE_tasks_cpl_bmrk=48
@@ -241,27 +249,56 @@ elif [[ $MACHINE_ID = stampede.* ]]; then
   echo "Unknown MACHINE_ID ${MACHINE_ID}. Please update tasks configurations in default_vars.sh"
   exit 1
 
-  TASKS_dflt=150 ; TPN_dflt=48 ; INPES_dflt=3 ; JNPES_dflt=8
-  TASKS_thrd=78  ; TPN_thrd=24 ; INPES_thrd=3 ; JNPES_thrd=4
-  TASKS_c384=336 ; TPN_c384=20 ; INPES_c384=8 ; JNPES_c384=6
-  TASKS_c768=992 ; TPN_c768=20 ; INPES_c768=8 ; JNPES_c768=16
-  TASKS_stretch=48 ; TPN_stretch=12 ; INPES_stretch=2 ; JNPES_stretch=4
+  TPN_dflt=48 ; INPES_dflt=3 ; JNPES_dflt=8
+  TPN_thrd=24 ; INPES_thrd=3 ; JNPES_thrd=4
+  TPN_c384=20 ; INPES_c384=8 ; JNPES_c384=6
+  TPN_c768=20 ; INPES_c768=8 ; JNPES_c768=16
+  TPN_stretch=12 ; INPES_stretch=2 ; JNPES_stretch=4
 
-  TASKS_cpl_atmw_gdas=560; TPN_cpl_atmw_gdas=12; INPES_cpl_atmw_gdas=6; JNPES_cpl_atmw_gdas=8
+  TPN_cpl_atmw_gdas=12; INPES_cpl_atmw_gdas=6; JNPES_cpl_atmw_gdas=8
   THRD_cpl_atmw_gdas=4; WPG_cpl_atmw_gdas=24; APB_cpl_atmw_gdas="0 311"; WPB_cpl_atmw_gdas="312 559"
+
+elif [[ ${MACHINE_ID} = noaacloud.* ]] ; then
+
+    if [[ $PW_CSP == aws ]]; then
+    TPN=36
+    elif [[ $PW_CSP == azure ]]; then
+    TPN=44
+    elif [[ $PW_CSP == google ]]; then
+    TPN=30
+    fi
+
+    INPES_dflt=3 ; JNPES_dflt=8
+    INPES_thrd=3 ; JNPES_thrd=4
+    
+    INPES_c384=8 ; JNPES_c384=6  ; THRD_c384=2
+    INPES_c768=8 ; JNPES_c768=16 ; THRD_c768=2
+
+    THRD_cpl_dflt=1
+    INPES_cpl_dflt=3; JNPES_cpl_dflt=8; WPG_cpl_dflt=6
+    OCN_tasks_cpl_dflt=20
+    ICE_tasks_cpl_dflt=10
+    WAV_tasks_cpl_dflt=20
+
+    THRD_cpl_thrd=2
+    INPES_cpl_thrd=3; JNPES_cpl_thrd=4; WPG_cpl_thrd=6
+    OCN_tasks_cpl_thrd=20
+    ICE_tasks_cpl_thrd=10
+    WAV_tasks_cpl_thrd=12
 
 elif [[ $MACHINE_ID = expanse.* ]]; then
 
   echo "Unknown MACHINE_ID ${MACHINE_ID}. Please update tasks configurations in default_vars.sh"
   exit 1
 
-  TASKS_dflt=150 ; TPN_dflt=64 ; INPES_dflt=3 ; JNPES_dflt=8
-  TASKS_thrd=78  ; TPN_thrd=64 ; INPES_thrd=3 ; JNPES_thrd=4
-  TASKS_stretch=48 ; TPN_stretch=12 ; INPES_stretch=2 ; JNPES_stretch=4
+  TPN_dflt=64 ; INPES_dflt=3 ; JNPES_dflt=8
+  TPN_thrd=64 ; INPES_thrd=3 ; JNPES_thrd=4
+  TPN_stretch=12 ; INPES_stretch=2 ; JNPES_stretch=4
 
-  TASKS_cpl_atmw_gdas=560; TPN_cpl_atmw_gdas=12; INPES_cpl_atmw_gdas=6; JNPES_cpl_atmw_gdas=8
+  TPN_cpl_atmw_gdas=12; INPES_cpl_atmw_gdas=6; JNPES_cpl_atmw_gdas=8
   THRD_cpl_atmw_gdas=2; WPG_cpl_atmw_gdas=24; APB_cpl_atmw_gdas="0 311"; WPB_cpl_atmw_gdas="312 559"
-
+  
+  
 else
 
   echo "Unknown MACHINE_ID ${MACHINE_ID}"
@@ -291,9 +328,9 @@ export USE_MERRA2=.false.
 export NTILES=6
 export INPES=$INPES_dflt
 export JNPES=$JNPES_dflt
-export TASKS=$TASKS_dflt
 export RESTART_INTERVAL=0
 export QUILTING=.true.
+export QUILTING_RESTART=.false.
 export WRITE_GROUP=1
 export WRTTASK_PER_GROUP=6
 export ITASKS=1
@@ -337,6 +374,7 @@ export DOGP_CLDOPTICS_LUT=.false.
 export DOGP_LWSCAT=.false.
 export USE_LW_JACOBIAN=.false.
 export DAMP_LW_FLUXADJ=.false.
+export RRTMGP_LW_PHYS_BLKSZ=2
 export ICLOUD=0
 export IAER=111
 export ICLIQ_SW=1
@@ -370,6 +408,7 @@ export NSSL_INVERTCCN=.true.
 
 # Smoke
 export RRFS_SMOKE=.false.
+export SMOKE_FORECAST=0
 export RRFS_RESTART=NO
 export SEAS_OPT=2
 
@@ -447,8 +486,12 @@ export OZ_PHYS_OLD=.true.
 export OZ_PHYS_NEW=.false.
 export H2O_PHYS=.false.
 
-# Flake model
-export LKM=0
+# Lake models
+export LKM=0 # 0=no lake, 1=run lake model, 2=run both lake and nsst on lake points
+export IOPT_LAKE=2 # 1=flake, 2=clm lake
+export LAKEFRAC_THRESHOLD=0.0 # lake fraction must be higher for lake model to run it
+export LAKEDEPTH_THRESHOLD=1.0 # lake must be deeper (in meters) for a lake model to run it
+export FRAC_ICE=.false.
 
 export CPL=.false.
 export CPLCHM=.false.
@@ -495,7 +538,7 @@ export FHROT=0
 export LDIAG3D=.false.
 export QDIAG3D=.false.
 export PRINT_DIFF_PGR=.false.
-export MAX_OUTPUT_FIELDS=300
+export MAX_OUTPUT_FIELDS=310
 
 # Stochastic physics
 export STOCHINI=.false.
@@ -526,11 +569,11 @@ export IAU_DRYMASSFIXER=.false.
 #waves
 export WW3RSTDTHR=12
 export DT_2_RST="$(printf "%02d" $(( ${WW3RSTDTHR}*3600 )))"
-export DTRST=0
-export RSTTYPE=T
 export WW3OUTDTHR=1
 export DTFLD="$(printf "%02d" $(( ${WW3OUTDTHR}*3600 )))"
 export DTPNT="$(printf "%02d" $(( ${WW3OUTDTHR}*3600 )))"
+export DTRST=0
+export RSTTYPE=T
 export GOFILETYPE=1
 export POFILETYPE=1
 export OUTPARS_WAV="WND HS FP DP PHS PTP PDIR"
@@ -556,8 +599,15 @@ export RST_BEG=$RUN_BEG
 export RST_2_BEG=$RUN_BEG
 export RST_END=$RUN_END
 export RST_2_END=$RUN_END
+export WAV_CUR='F'
+export WAV_ICE='F'
+export WAV_IC1='F'
+export WAV_IC5='F'
 # ATMW
 export MULTIGRID=true
+export MODDEF_WAV=mod_def.glo_1deg
+export MESH_WAV=mesh.glo_1deg.nc
+
 # ATMA
 export AOD_FRQ=060000
 
@@ -608,7 +658,6 @@ export NPZP=128
 # default resources
 export DOMAINS_STACK_SIZE=8000000
 
-export TASKS=$TASKS_cpl_dflt
 export INPES=$INPES_cpl_dflt
 export JNPES=$JNPES_cpl_dflt
 export THRD=$THRD_cpl_dflt
@@ -755,6 +804,7 @@ export DNATS=2
 export IMP_PHYSICS=8
 export LGFDLMPRAD=.false.
 export DO_SAT_ADJ=.false.
+export SATMEDMF=.true.
 
 # P7 default mushy thermo
 export KTHERM=2
@@ -806,6 +856,7 @@ export BLCKX=`expr $NX_GLB / $np2`
 export BLCKY=`expr $NY_GLB / 2`
 export MESHOCN_ICE=mesh.mx${OCNRES}.nc
 export WAVDOMAIN=mx${OCNRES}
+export MODDEF_WAV=mod_def.mx${OCNRES}
 export MESH_WAV=mesh.${WAVDOMAIN}.nc
 export CICEGRID=grid_cice_NEMS_mx${OCNRES}.nc
 export CICEMASK=kmtu_cice_NEMS_mx${OCNRES}.nc
@@ -826,29 +877,21 @@ export GRIDOCN=A
 export GRIDICE=B
 
 #wave
-export INPUT_CURFLD='C F     Currents'
-export INPUT_ICEFLD='C F     Ice concentrations'
 export WW3RSTDTHR=3
-export WW3OUTDTHR=3
 export DT_2_RST="$(printf "%02d" $(( ${WW3RSTDTHR}*3600 )))"
+export WW3OUTDTHR=3
 export DTFLD="$(printf "%02d" $(( ${WW3OUTDTHR}*3600 )))"
 export DTPNT="$(printf "%02d" $(( ${WW3OUTDTHR}*3600 )))"
-export WW3GRIDLINE="'ww3'  'no' 'CPL:native' 'CPL:native' 'CPL:native' 'no' 'no' 'no' 'no' 'no'   1  1  0.00 1.00  F"
-export UNIPOINTS='points'
-export RUN_BEG="${SYEAR}${SMONTH}${SDAY} $(printf "%02d" $(( ${SHOUR}  )))0000"
-export RUN_END="2100${SMONTH}${SDAY} $(printf "%02d" $(( ${SHOUR}  )))0000"
-export OUT_BEG=$RUN_BEG
-export OUT_END=$RUN_END
-export RST_BEG=$RUN_BEG
-export RST_2_BEG=$RUN_BEG
-export RST_END=$RUN_END
-export RST_2_END=$RUN_END
+# waves when using shel.nml.IN
+export WAV_CUR='C'
+export WAV_ICE='C'
+export WAV_IC1='F'
+export WAV_IC5='F'
 # gocart inst_aod output; uses AERO_HIST.rc.IN from parm/gocart directory
 export AOD_FRQ=060000
 
 # checkpoint restarts
 export RESTART_FILE_PREFIX=''
-export RESTART_FILE_SUFFIX_HRS=''
 export RESTART_FILE_SUFFIX_SECS=''
 export RT35D=''
 }
@@ -893,7 +936,6 @@ export ice_model=cice6
 export ATM_compute_tasks=$ATM_compute_tasks_cdeps_100
 export OCN_tasks=$OCN_tasks_cdeps_100
 export ICE_tasks=$ICE_tasks_cdeps_100
-export TASKS=$TASKS_cdeps_100
 # SlenderX2
 export CICE_DECOMP=slenderX2
 export NPROC_ICE=12
@@ -995,7 +1037,6 @@ export DATM_CDEPS=true
 export DOCN_CDEPS=false
 export INPES=$INPES_dflt
 export JNPES=$JNPES_dflt
-export TASKS=$TASKS_dflt
 export NTILES=1
 
 export atm_model=datm
@@ -1012,7 +1053,6 @@ export AQM=false
 export DOCN_CDEPS=true
 export INPES=$INPES_dflt
 export JNPES=$JNPES_dflt
-export TASKS=$TASKS_dflt
 export NTILES=1
 
 export ocn_model=docn
@@ -1031,7 +1071,6 @@ export DATM_CDEPS=false
 export DOCN_CDEPS=false
 export INPES=$INPES_dflt
 export JNPES=$JNPES_dflt
-export TASKS=$TASKS_dflt
 export NTILES=1
 
 # model_configure
@@ -1071,13 +1110,18 @@ export DLON=0.03
 export DLAT=0.03
 
 # shel.inp
-export INPUT_CURFLD='C F     Currents'
-export INPUT_ICEFLD='F F     Ice concentrations'
 # input.nml
 export CPL_IMP_MRG=.true.
 
 export DIAG_TABLE=diag_table_hafs
 export FIELD_TABLE=field_table_hafs
+export WW3RSTDTHR=${FHMAX}
+export DT_2_RST="$(printf "%02d" $(( ${WW3RSTDTHR}*3600 )))"
+export WW3OUTDTHR=3
+export DTFLD="$(printf "%02d" $(( ${WW3OUTDTHR}*3600 )))"
+export DTPNT="$(printf "%02d" $(( ${WW3OUTDTHR}*3600 )))"
+export OUTPARS_WAV="WND HS T01 T02 DIR FP DP PHS PTP PDIR UST CHA USP"
+export WAV_CUR='C'
 
 # nems.configure
 export med_model=cmeps
@@ -1087,6 +1131,7 @@ export CPLMODE=hafs
 export RUNTYPE=startup
 export USE_COLDSTART=false
 export MESH_WAV=mesh.hafs.nc
+export MODDEF_WAV=mod_def.natl_6m
 export MULTIGRID=false
 }
 
@@ -1100,7 +1145,6 @@ export DATM_CDEPS=false
 export DOCN_CDEPS=false
 export INPES=$INPES_dflt
 export JNPES=$JNPES_dflt
-export TASKS=$TASKS_dflt
 export NTILES=1
 
 export IS_MOVING_NEST=".false."
